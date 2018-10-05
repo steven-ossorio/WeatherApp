@@ -1,29 +1,37 @@
 import React, { Component } from "react";
 import "./App.css";
-import axios from "axios";
-import weatherKey from "./keys/weatherApiKey";
-import SearchForm from "./SearchForm";
+import SearchForms from "./SearchForms";
+import Nav from "./Nav";
+import * as Cities from './keys/citiesJson.json' 
 
 class App extends Component {
-  getInfo = () => {
-    axios
-      .get(
-        `http://api.openweathermap.org/data/2.5/forecast?q=Berlin&APPID=${
-          weatherKey.key
-        }`
-      )
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+  state = {
+    weather: {},
+    cities: {}
   };
+
+  componentDidMount(){
+    if (Object.keys(this.state.cities).length === 0) {
+      let cities = {};
+      Cities.default.forEach(city => {
+        cities[city.name] = city.id
+      })
+
+      this.setState({ cities })
+    }
+  }
+
+  updateWeather = data => {
+    this.setState({ weather: data })
+  }
+
   render() {
+    console.log(this.state.weather)
     return (
       <div className="App">
-        <SearchForm />
-        <button onClick={this.getInfo}>Get Info</button>
+        <Nav />
+        <SearchForms updateWeather={this.updateWeather} cities={this.state.cities} />
+        <CityWeather>
       </div>
     );
   }
