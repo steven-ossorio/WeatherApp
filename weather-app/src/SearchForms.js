@@ -10,16 +10,21 @@ class SearchForms extends Component {
 
   render() {
     if (this.props.currentForm === "city") {
-      return <SearchCity />;
+      return (
+        <SearchCity
+          updateCurrent={this.props.updateCurrent}
+          updateForecast={this.props.updateForecast}
+        />
+      );
     }
 
     if (this.props.currentForm === "zip code") {
-      return <SearchZip />;
+      return <SearchZip updateForecast={this.props.updateForecast} />;
     }
 
-    if (this.props.currentForm === "lat & long") {
-      return <SearchLatNLong />;
-    }
+    // if (this.props.currentForm === "lat & long") {
+    //   return <SearchLatNLong />;
+    // }
   }
 }
 

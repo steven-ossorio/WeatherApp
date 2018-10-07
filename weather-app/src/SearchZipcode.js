@@ -21,7 +21,7 @@ class SearchZipcode extends Component {
     if (this.state.country === "") {
       axios
         .get(
-          `http://api.openweathermap.org/data/2.5/weather?zip=${
+          `http://api.openweathermap.org/data/2.5/forecast?zip=${
             this.state.zip
           }&APPID=${weatherKey.key}`
         )

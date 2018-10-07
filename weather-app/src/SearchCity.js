@@ -29,8 +29,7 @@ class SearchCity extends Component {
   };
 
   onSubmit = e => {
-    let { cities } = this.props;
-    let cityId = cities[this.state.city];
+    let cityId = this.state.cities[this.state.city];
 
     e.preventDefault();
     axios
@@ -41,6 +40,7 @@ class SearchCity extends Component {
       )
       .then(res => {
         this.props.updateCurrent(res.data);
+        this.setState({ city: "" });
       })
       .catch(err => {
         console.log(err);
