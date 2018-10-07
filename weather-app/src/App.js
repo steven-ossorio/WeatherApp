@@ -2,36 +2,46 @@ import React, { Component } from "react";
 import "./App.css";
 import SearchForms from "./SearchForms";
 import Nav from "./Nav";
-import * as Cities from './keys/citiesJson.json' 
+import * as Cities from "./keys/citiesJson.json";
+import CityWeather from "./CityWeather";
 
 class App extends Component {
   state = {
-    weather: {},
-    cities: {}
+    forecast: {},
+    cities: {},
+    current: {}
   };
 
-  componentDidMount(){
+  componentDidMount() {
     if (Object.keys(this.state.cities).length === 0) {
       let cities = {};
       Cities.default.forEach(city => {
-        cities[city.name] = city.id
-      })
+        cities[city.name] = city.id;
+      });
 
-      this.setState({ cities })
+      this.setState({ cities });
     }
   }
 
-  updateWeather = data => {
-    this.setState({ weather: data })
-  }
+  updateForecast = forecast => {
+    this.setState({ forecast });
+  };
+
+  updateCurrent = current => {
+    this.setState({ current });
+  };
 
   render() {
-    console.log(this.state.weather)
+    console.log(this.state);
     return (
       <div className="App">
         <Nav />
-        <SearchForms updateWeather={this.updateWeather} cities={this.state.cities} />
-        <CityWeather>
+        <SearchForms
+          updateForecast={this.updateForecast}
+          updateCurrent={this.updateCurrent}
+          cities={this.state.cities}
+        />
+        <CityWeather forecast={this.state.forecast} />
       </div>
     );
   }
