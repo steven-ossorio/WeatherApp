@@ -2,26 +2,14 @@ import React, { Component } from "react";
 import "./App.css";
 import SearchForms from "./SearchForms";
 import Nav from "./Nav";
-import * as Cities from "./keys/citiesJson.json";
 import CityWeather from "./CityWeather";
 
 class App extends Component {
   state = {
     forecast: {},
-    cities: {},
-    current: {}
+    current: {},
+    currentForm: "city"
   };
-
-  componentDidMount() {
-    if (Object.keys(this.state.cities).length === 0) {
-      let cities = {};
-      Cities.default.forEach(city => {
-        cities[city.name] = city.id;
-      });
-
-      this.setState({ cities });
-    }
-  }
 
   updateForecast = forecast => {
     this.setState({ forecast });
@@ -31,17 +19,27 @@ class App extends Component {
     this.setState({ current });
   };
 
+  updateForm = e => {
+    let currentForm = e.target.value.toLowerCase();
+    this.setState({ currentForm });
+  };
+
   render() {
-    console.log(this.state);
     return (
       <div className="App">
         <Nav />
+        <input onClick={this.updateForm} value="City" type="button" />
+        <input onClick={this.updateForm} value="Zip Code" type="button" />
+        <input onClick={this.updateForm} value="Lat & Long" type="button" />
         <SearchForms
           updateForecast={this.updateForecast}
           updateCurrent={this.updateCurrent}
-          cities={this.state.cities}
+          currentForm={this.state.currentForm}
         />
-        <CityWeather forecast={this.state.forecast} />
+        <CityWeather
+          current={this.state.current}
+          forecast={this.state.forecast}
+        />
       </div>
     );
   }

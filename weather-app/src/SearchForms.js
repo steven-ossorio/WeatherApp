@@ -1,66 +1,26 @@
 import React, { Component } from "react";
-import axios from "axios";
-import weatherKey from "./keys/weatherApiKey";
+import SearchCity from "./SearchCity";
+import SearchZip from "./SearchZipcode";
+import SearchLatNLong from "./SearchLat&Long";
 
-class SearchForm extends Component {
+class SearchForms extends Component {
   state = {
-    city: ""
-  };
-
-  update = field => {
-    return e => {
-      this.setState({
-        [field]: e.target.value
-      });
-    };
-  };
-
-  onSubmit = e => {
-    let { cities } = this.props;
-    let cityId = cities[this.state.city];
-
-    e.preventDefault();
-    axios
-      .get(
-        `http://api.openweathermap.org/data/2.5/weather?id=${cityId}&APPID=${
-          weatherKey.key
-        }`
-      )
-      .then(res => {
-        this.props.updateCurrent(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-
-    axios
-      .get(
-        `http://api.openweathermap.org/data/2.5/forecast?id=${cityId}&APPID=${
-          weatherKey.key
-        }`
-      )
-      .then(res => {
-        this.props.updateForecast(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    currentForm: "city"
   };
 
   render() {
-    return (
-      <div>
-        <form onSubmit={this.onSubmit}>
-          <input
-            placeholder="City"
-            onChange={this.update("city")}
-            value={this.state.city}
-            type="text"
-          />
-        </form>
-      </div>
-    );
+    if (this.props.currentForm === "city") {
+      return <SearchCity />;
+    }
+
+    if (this.props.currentForm === "zip code") {
+      return <SearchZip />;
+    }
+
+    if (this.props.currentForm === "lat & long") {
+      return <SearchLatNLong />;
+    }
   }
 }
 
-export default SearchForm;
+export default SearchForms;
