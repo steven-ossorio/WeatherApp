@@ -6,7 +6,7 @@ class CityWeatherForecast extends Component {
     let { list } = this.props.forecast;
     let nextFewHours = [];
     if (list) {
-      for (let i = 0; i < 9; i++) {
+      for (let i = 0; i < 8; i++) {
         nextFewHours.push(list[i]);
       }
 

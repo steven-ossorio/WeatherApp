@@ -9,6 +9,7 @@ class App extends Component {
   state = {
     forecast: {},
     current: {},
+    hourlyForecast: [],
     currentForm: "city"
   };
 
@@ -26,6 +27,7 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.state);
     let currentWeather =
       Object.keys(this.state.current).length === 0 ? (
         ""
