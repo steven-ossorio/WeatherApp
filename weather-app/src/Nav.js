@@ -3,7 +3,7 @@ import "./Nav.css";
 
 export default () => {
   return (
-    <div>
+    <div className="nav-container">
       <nav>Amazing Weather App</nav>
     </div>
   );
