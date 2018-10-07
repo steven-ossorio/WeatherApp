@@ -37,8 +37,18 @@ class App extends Component {
     return (
       <div className="App">
         <Nav />
-        <input onClick={this.updateForm} value="City" type="button" />
-        <input onClick={this.updateForm} value="Zip Code" type="button" />
+        <input
+          className="select-form"
+          onClick={this.updateForm}
+          value="City"
+          type="button"
+        />
+        <input
+          className="select-form"
+          onClick={this.updateForm}
+          value="Zip Code"
+          type="button"
+        />
         <SearchForms
           updateForecast={this.updateForecast}
           updateCurrent={this.updateCurrent}

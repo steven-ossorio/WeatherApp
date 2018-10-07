@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import weatherKey from "./keys/weatherApiKey";
 import * as Cities from "./keys/citiesJson.json";
+import "./SearchCity.css";
 
 class SearchCity extends Component {
   state = {
@@ -65,6 +66,7 @@ class SearchCity extends Component {
       <div>
         <form onSubmit={this.onSubmit}>
           <input
+            className="city-search-button"
             placeholder="City"
             onChange={this.update("city")}
             value={this.state.city}
