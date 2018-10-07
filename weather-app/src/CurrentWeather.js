@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import moment from "moment";
+import "./CurrentWeather.css";
 
 class CurrentWeather extends Component {
   render() {
@@ -8,6 +9,7 @@ class CurrentWeather extends Component {
 
     return (
       <div className="current-weather-container">
+        <h1 className="current-weather-container-title">Current Weather</h1>
         <div className="current-weather-container-location">
           <div>
             {name}, {sys.country}
