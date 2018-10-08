@@ -50,7 +50,10 @@ class FiveDayForecast extends Component {
               alt=""
             />
           </div>
-          <div>{Math.ceil(weather.main.temp)}</div>
+          <div>
+            {Math.ceil(weather.main.temp)}
+            {"\u2109"}
+          </div>
         </li>
       );
     });

@@ -11,7 +11,6 @@ class CityWeather extends Component {
 
     let { weather, sys, name, main, id, dt } = this.props.current;
     let date = new Date(dt * 1000);
-    console.log(moment(date).format("dddd"));
 
     let forecast = list.map((current, i) => {
       let time = current.dt_txt + " utc";
@@ -49,7 +48,10 @@ class CityWeather extends Component {
               alt=""
             />
           </div>
-          <div>{Math.ceil((current.main.temp - 273.15) * (9 / 5) + 32)}</div>
+          <div>
+            {Math.ceil((current.main.temp - 273.15) * (9 / 5) + 32)}
+            {"\u2109"}
+          </div>
         </li>
       );
     });

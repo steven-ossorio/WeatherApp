@@ -32,6 +32,7 @@ class CurrentWeather extends Component {
           </div>
           <div className="current-weather-container-temp-num">
             {Math.ceil(main.temp)}
+            {"\u2109"}
           </div>
         </div>
       </div>
