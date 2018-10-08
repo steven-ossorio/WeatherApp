@@ -7,6 +7,7 @@ class FiveDayForecast extends Component {
     weekDays: {},
     days: []
   };
+
   render() {
     if (!this.props.forecast) {
       return <div />;
@@ -26,9 +27,12 @@ class FiveDayForecast extends Component {
       }
 
       if (day !== current) {
-        current = day;
-        days.push(current);
-        obj[current] = weather;
+        let icon = weather.weather[0].icon;
+        if (icon[icon.length - 1] === "d") {
+          current = day;
+          days.push(current);
+          obj[current] = weather;
+        }
       }
     });
 
@@ -51,12 +55,16 @@ class FiveDayForecast extends Component {
       );
     });
 
-    return (
+    let forecast = this.props.showFiveDay ? (
       <div>
         <h1>5 Day Forecast</h1>
         <ul className="five-day-forecast-container">{nextDays}</ul>
       </div>
+    ) : (
+      <h1 onClick={this.props.funcShowFiveDay}>Show 5 Day Forecast?</h1>
     );
+
+    return <div>{forecast}</div>;
   }
 }
 

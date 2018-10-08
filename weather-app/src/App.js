@@ -11,7 +11,8 @@ class App extends Component {
   state = {
     forecast: {},
     current: {},
-    currentForm: "city"
+    currentForm: "city",
+    showFiveDay: false
   };
 
   updateForecast = forecast => {
@@ -25,6 +26,10 @@ class App extends Component {
   updateForm = e => {
     let currentForm = e.target.value.toLowerCase();
     this.setState({ currentForm });
+  };
+
+  showFiveDay = () => {
+    this.setState({ showFiveDay: true });
   };
 
   render() {
@@ -60,7 +65,11 @@ class App extends Component {
           <NextHoursWeather nextHours={this.state.forecast.list} />
         </div>
         <div>
-          <FiveDayForecast forecast={this.state.forecast.list} />
+          <FiveDayForecast
+            showFiveDay={this.state.showFiveDay}
+            forecast={this.state.forecast.list}
+            funcShowFiveDay={this.showFiveDay}
+          />
         </div>
         <Footer />
       </div>
