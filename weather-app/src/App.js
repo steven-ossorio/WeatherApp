@@ -4,6 +4,7 @@ import Nav from "./Nav";
 import SearchForms from "./SearchForms";
 import CurrentWeather from "./CurrentWeather";
 import Forecast from "./CityWeatherForecast";
+import NextHoursWeather from "./NextHoursWeather";
 
 class App extends Component {
   state = {
@@ -55,7 +56,8 @@ class App extends Component {
           currentForm={this.state.currentForm}
         />
         {currentWeather}
-        <Forecast forecast={this.state.forecast} />
+        <NextHoursWeather nextHours={this.state.forecast.list} />
+        {/* <Forecast forecast={this.state.forecast} /> */}
       </div>
     );
   }

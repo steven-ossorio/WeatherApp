@@ -1,0 +1,11 @@
+.next-hours-container {
+  display: flex;
+  justify-content: space-around;
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 35px;
+}
+
+li {
+  list-style: none;
+}
