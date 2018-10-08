@@ -37,7 +37,7 @@ class SearchCity extends Component {
       .get(
         `http://api.openweathermap.org/data/2.5/weather?id=${cityId}&APPID=${
           weatherKey.key
-        }`
+        }&units=imperial`
       )
       .then(res => {
         this.props.updateCurrent(res.data);
@@ -51,7 +51,7 @@ class SearchCity extends Component {
       .get(
         `http://api.openweathermap.org/data/2.5/forecast?id=${cityId}&APPID=${
           weatherKey.key
-        }`
+        }&units=imperial`
       )
       .then(res => {
         this.props.updateForecast(res.data);

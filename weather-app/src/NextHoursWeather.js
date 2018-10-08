@@ -22,7 +22,7 @@ class NextHoursWeather extends Component {
               alt=""
             />
           </div>
-          <div>{Math.ceil((weather.main.temp - 273.15) * (9 / 5) + 32)}</div>
+          <div>{Math.ceil(weather.main.temp)}</div>
         </li>
       );
     });

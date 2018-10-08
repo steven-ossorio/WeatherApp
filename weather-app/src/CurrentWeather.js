@@ -31,7 +31,7 @@ class CurrentWeather extends Component {
             />
           </div>
           <div className="current-weather-container-temp-num">
-            {Math.ceil((main.temp - 273.15) * (9 / 5) + 32)}
+            {Math.ceil(main.temp)}
           </div>
         </div>
       </div>

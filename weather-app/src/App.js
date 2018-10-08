@@ -5,6 +5,7 @@ import SearchForms from "./SearchForms";
 import CurrentWeather from "./CurrentWeather";
 import Forecast from "./CityWeatherForecast";
 import NextHoursWeather from "./NextHoursWeather";
+import FiveDayForecast from "./FiveDayForecast";
 
 class App extends Component {
   state = {
@@ -57,7 +58,7 @@ class App extends Component {
         />
         {currentWeather}
         <NextHoursWeather nextHours={this.state.forecast.list} />
-        {/* <Forecast forecast={this.state.forecast} /> */}
+        <FiveDayForecast forecase={this.state.forecast.list} />
       </div>
     );
   }
