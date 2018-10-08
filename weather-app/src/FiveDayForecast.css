@@ -4,3 +4,19 @@
   margin: 0 auto;
   width: 600px;
 }
+
+.five-day-list {
+  background-color: aquamarine;
+  padding: 15px;
+}
+
+.five-day-list:hover {
+  border-right: 1px solid #5b7faf;
+  border-left: 1px solid #5b7faf;
+  cursor: pointer;
+}
+
+li {
+  background-color: #5b7faf;
+  padding: 15px;
+}

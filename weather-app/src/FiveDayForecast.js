@@ -40,7 +40,7 @@ class FiveDayForecast extends Component {
       let weather = obj[day];
 
       return (
-        <li key={i}>
+        <li className="five-day-list" key={i}>
           <h3>{day}</h3>
           <div>
             <img

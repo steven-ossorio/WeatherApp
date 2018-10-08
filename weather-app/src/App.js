@@ -16,11 +16,11 @@ class App extends Component {
   };
 
   updateForecast = forecast => {
-    this.setState({ forecast });
+    this.setState({ forecast, showFiveDay: false });
   };
 
   updateCurrent = current => {
-    this.setState({ current });
+    this.setState({ current, showFiveDay: false });
   };
 
   updateForm = e => {
