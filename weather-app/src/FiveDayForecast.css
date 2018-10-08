@@ -1,0 +1,6 @@
+.five-day-forecast-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  width: 600px;
+}

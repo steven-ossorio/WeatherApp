@@ -3,7 +3,6 @@ import "./App.css";
 import Nav from "./Nav";
 import SearchForms from "./SearchForms";
 import CurrentWeather from "./CurrentWeather";
-import Forecast from "./CityWeatherForecast";
 import NextHoursWeather from "./NextHoursWeather";
 import FiveDayForecast from "./FiveDayForecast";
 
@@ -11,7 +10,6 @@ class App extends Component {
   state = {
     forecast: {},
     current: {},
-    hourlyForecast: [],
     currentForm: "city"
   };
 
@@ -58,7 +56,7 @@ class App extends Component {
         />
         {currentWeather}
         <NextHoursWeather nextHours={this.state.forecast.list} />
-        <FiveDayForecast forecase={this.state.forecast.list} />
+        <FiveDayForecast forecast={this.state.forecast.list} />
       </div>
     );
   }
