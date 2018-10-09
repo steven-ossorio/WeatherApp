@@ -9,14 +9,15 @@ import Footer from "./Footer";
 
 class App extends Component {
   state = {
-    forecast: {},
+    forecast: [],
     current: {},
     currentForm: "city",
-    showFiveDay: false
+    showFiveDay: false,
+    nextHours: []
   };
 
   updateForecast = forecast => {
-    this.setState({ forecast, showFiveDay: false });
+    this.setState({ forecast, showFiveDay: false, nextHours: forecast });
   };
 
   updateCurrent = current => {
@@ -32,8 +33,11 @@ class App extends Component {
     this.setState({ showFiveDay: true });
   };
 
+  updateDayForecast = nextHours => {
+    this.setState({ nextHours });
+  };
+
   render() {
-    console.log(this.state);
     let currentWeather =
       Object.keys(this.state.current).length === 0 ? (
         ""
@@ -62,13 +66,14 @@ class App extends Component {
         />
         <div>
           {currentWeather}
-          <NextHoursWeather nextHours={this.state.forecast.list} />
+          <NextHoursWeather nextHours={this.state.nextHours} />
         </div>
         <div>
           <FiveDayForecast
             showFiveDay={this.state.showFiveDay}
-            forecast={this.state.forecast.list}
+            forecast={this.state.forecast}
             funcShowFiveDay={this.showFiveDay}
+            updateDayForecast={this.updateDayForecast}
           />
         </div>
         <Footer />

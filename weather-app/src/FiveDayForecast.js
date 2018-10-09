@@ -5,14 +5,15 @@ import "./FiveDayForecast.css";
 class FiveDayForecast extends Component {
   state = {
     weekDays: {},
-    days: []
+    days: [],
+    collection: {}
   };
 
-  render() {
-    if (!this.props.forecast) {
-      return <div />;
-    }
+  componentWillReceiveProps(nextProps) {
+    this.createDays();
+  }
 
+  createDays = () => {
     let obj = {};
     let days = [];
     let current;
@@ -36,11 +37,56 @@ class FiveDayForecast extends Component {
       }
     });
 
-    let nextDays = days.map((day, i) => {
-      let weather = obj[day];
+    this.setState({ days, weekDays: obj }, () => {
+      this.createCollection();
+    });
+  };
+
+  createCollection = () => {
+    let collection = {};
+    this.state.days.map((day, i) => {
+      if (i === 0) {
+        let arr = [];
+        for (let j = 0; j < 8; j++) {
+          arr.push(this.props.forecast[j]);
+          collection[day] = arr;
+        }
+      } else if (Object.keys(collection).length < 5) {
+        let arr = [];
+
+        this.props.forecast.forEach(weather => {
+          let date = new Date(weather.dt * 1000);
+          let dayddd = moment(date).format("ddd");
+
+          if (dayddd === day) {
+            arr.push(weather);
+          }
+        });
+
+        collection[day] = arr;
+      }
+    });
+
+    this.setState({ collection });
+  };
+
+  render() {
+    console.log(this.props);
+    if (this.props.forecast.length === 0) {
+      return <div />;
+    }
+
+    let nextDays = this.state.days.map((day, i) => {
+      let weather = this.state.weekDays[day];
 
       return (
-        <li className="five-day-list" key={i}>
+        <li
+          onClick={() =>
+            this.props.updateDayForecast(this.state.collection[day])
+          }
+          className="five-day-list"
+          key={i}
+        >
           <h3>{day}</h3>
           <div>
             <img

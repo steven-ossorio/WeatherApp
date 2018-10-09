@@ -54,7 +54,7 @@ class SearchCity extends Component {
         }&units=imperial`
       )
       .then(res => {
-        this.props.updateForecast(res.data);
+        this.props.updateForecast(res.data.list);
       })
       .catch(err => {
         console.log(err);
