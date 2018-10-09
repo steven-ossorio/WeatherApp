@@ -60,11 +60,16 @@ class FiveDayForecast extends Component {
 
     let forecast = this.props.showFiveDay ? (
       <div>
-        <h1>5 Day Forecast</h1>
+        <h1 className="five-day-forecast-title">5 Day Forecast</h1>
         <ul className="five-day-forecast-container">{nextDays}</ul>
       </div>
     ) : (
-      <h1 onClick={this.props.funcShowFiveDay}>Show 5 Day Forecast?</h1>
+      <h1
+        className="five-day-forecast-title on-hover"
+        onClick={this.props.funcShowFiveDay}
+      >
+        Show 5 Day Forecast?
+      </h1>
     );
 
     return <div>{forecast}</div>;
