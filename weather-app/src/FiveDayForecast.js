@@ -37,6 +37,8 @@ class FiveDayForecast extends Component {
       }
     });
 
+    days.splice(days.length - 1, 1);
+
     this.setState({ days, weekDays: obj }, () => {
       this.createCollection();
     });
@@ -71,7 +73,6 @@ class FiveDayForecast extends Component {
   };
 
   render() {
-    console.log(this.props);
     if (this.props.forecast.length === 0) {
       return <div />;
     }
