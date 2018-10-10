@@ -4,9 +4,13 @@ import SearchZip from "./SearchZipcode";
 import PropTypes from "prop-types";
 
 class SearchForms extends Component {
-  state = {
-    currentForm: "city"
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      currentForm: "city"
+    };
+  }
 
   render() {
     if (this.props.currentForm === "city") {
@@ -26,10 +30,6 @@ class SearchForms extends Component {
         />
       );
     }
-
-    // if (this.props.currentForm === "lat & long") {
-    //   return <SearchLatNLong />;
-    // }
   }
 }
 

@@ -6,10 +6,17 @@ import * as Cities from "./keys/citiesJson.json";
 import "./SearchCity.css";
 
 class SearchCity extends Component {
-  state = {
-    city: "",
-    cities: {}
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      city: "",
+      cities: {}
+    };
+
+    this.update = this.update.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
 
   componentDidMount() {
     if (Object.keys(this.state.cities).length === 0) {
@@ -22,15 +29,15 @@ class SearchCity extends Component {
     }
   }
 
-  update = field => {
+  update(field) {
     return e => {
       this.setState({
         [field]: e.target.value
       });
     };
-  };
+  }
 
-  onSubmit = e => {
+  onSubmit(e) {
     let cityName = this.state.city.split(" ");
     cityName = cityName
       .map(city => city.charAt(0).toUpperCase() + city.slice(1))
@@ -65,7 +72,7 @@ class SearchCity extends Component {
       .catch(err => {
         console.log(err);
       });
-  };
+  }
 
   render() {
     return (

@@ -8,34 +8,44 @@ import FiveDayForecast from "./FiveDayForecast";
 import Footer from "./Footer";
 
 class App extends Component {
-  state = {
-    forecast: [],
-    current: {},
-    currentForm: "city",
-    showFiveDay: false,
-    nextHours: []
-  };
+  constructor(props) {
+    super(props);
 
-  updateForecast = forecast => {
+    this.state = {
+      forecast: [],
+      current: {},
+      currentForm: "city",
+      showFiveDay: false,
+      nextHours: []
+    };
+
+    this.updateForecast = this.updateForecast.bind(this);
+    this.updateCurrent = this.updateCurrent.bind(this);
+    this.updateForm = this.updateForm.bind(this);
+    this.showFiveDay = this.showFiveDay.bind(this);
+    this.updateDayForecast = this.updateDayForecast.bind(this);
+  }
+
+  updateForecast(forecast) {
     this.setState({ forecast, showFiveDay: false, nextHours: forecast });
-  };
+  }
 
-  updateCurrent = current => {
+  updateCurrent(current) {
     this.setState({ current, showFiveDay: false });
-  };
+  }
 
-  updateForm = e => {
+  updateForm(e) {
     let currentForm = e.target.value.toLowerCase();
     this.setState({ currentForm });
-  };
+  }
 
-  showFiveDay = () => {
+  showFiveDay() {
     this.setState({ showFiveDay: true });
-  };
+  }
 
-  updateDayForecast = nextHours => {
+  updateDayForecast(nextHours) {
     this.setState({ nextHours });
-  };
+  }
 
   render() {
     let currentWeather =
