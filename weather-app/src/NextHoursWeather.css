@@ -9,3 +9,12 @@
 li {
   list-style: none;
 }
+
+.next-hours-container-time {
+  padding: 5px;
+}
+
+.next-hours-container-description {
+  font-size: 13px;
+  padding: 5px;
+}

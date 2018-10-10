@@ -12,7 +12,12 @@ class NextHoursWeather extends Component {
       let date = new Date(weather.dt * 1000);
       return (
         <li key={i}>
-          <div>{moment(date).format("LT")}</div>
+          <div className="next-hours-container-time">
+            {moment(date).format("LT")}
+          </div>
+          <div className="next-hours-container-description">
+            {weather.weather[0].description}
+          </div>
           <div>
             {" "}
             <img
