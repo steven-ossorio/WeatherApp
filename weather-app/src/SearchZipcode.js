@@ -21,12 +21,12 @@ class SearchZipcode extends Component {
     if (this.state.country === "") {
       axios
         .get(
-          `http://api.openweathermap.org/data/2.5/forecast?zip=${
+          `http://api.openweathermap.org/data/2.5/weather?zip=${
             this.state.zip
           }&APPID=${weatherKey.key}`
         )
         .then(res => {
-          this.props.updateForecast(res.data);
+          this.props.updateCurrent(res.data);
         })
         .catch(err => {
           console.log(err);
@@ -39,7 +39,8 @@ class SearchZipcode extends Component {
           },${this.state.country}&APPID=${weatherKey.key}`
         )
         .then(res => {
-          this.props.updateForecast(res.data);
+          console.log(res);
+          this.props.updateForecast(res.data.list);
         })
         .catch(err => {
           console.log(err);
@@ -52,6 +53,7 @@ class SearchZipcode extends Component {
       <div>
         <form onSubmit={this.onSubmit}>
           <input
+            className="city-search-button"
             placeholder="Zip Code"
             onChange={this.update("zip")}
             value={this.state.zip}

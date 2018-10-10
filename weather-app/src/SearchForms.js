@@ -19,7 +19,12 @@ class SearchForms extends Component {
     }
 
     if (this.props.currentForm === "zip code") {
-      return <SearchZip updateForecast={this.props.updateForecast} />;
+      return (
+        <SearchZip
+          updateCurrent={this.props.updateCurrent}
+          updateForecast={this.props.updateForecast}
+        />
+      );
     }
 
     // if (this.props.currentForm === "lat & long") {
