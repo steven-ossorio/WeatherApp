@@ -4,13 +4,9 @@ import SearchZip from "./SearchZipcode";
 import PropTypes from "prop-types";
 
 class SearchForms extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      currentForm: "city"
-    };
-  }
+  state = {
+    currentForm: "city"
+  };
 
   render() {
     if (this.props.currentForm === "city") {

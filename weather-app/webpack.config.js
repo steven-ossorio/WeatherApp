@@ -13,7 +13,7 @@ module.exports = {
           loader: "babel-loader",
           options: {
             presets: ["@babel/preset-env", "@babel/preset-react"],
-            plugins: ["emotion"]
+            plugins: ["emotion", "@babel/plugin-proposal-class-properties"]
           }
         }
       },
@@ -25,7 +25,7 @@ module.exports = {
   },
   resolve: { extensions: [".js", ".jsx", "sass"] },
   output: {
-    path: __dirname + "/src/javascripts",
+    path: __dirname + "/src/javascript",
     filename: "bundle.js"
   },
   plugins: [

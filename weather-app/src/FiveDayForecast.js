@@ -4,24 +4,17 @@ import PropTypes from "prop-types";
 import "./FiveDayForecast.css";
 
 class FiveDayForecast extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      weekDays: {},
-      days: [],
-      collection: {}
-    };
-
-    this.createDays = this.createDays.bind(this);
-    this.createCollection = this.createCollection.bind(this);
-  }
+  state = {
+    weekDays: {},
+    days: [],
+    collection: {}
+  };
 
   componentWillReceiveProps(nextProps) {
     this.createDays();
   }
 
-  createDays() {
+  createDays = () => {
     let obj = {};
     let days = [];
     let current;
@@ -50,9 +43,9 @@ class FiveDayForecast extends Component {
     this.setState({ days, weekDays: obj }, () => {
       this.createCollection();
     });
-  }
+  };
 
-  createCollection() {
+  createCollection = () => {
     let collection = {};
     this.state.days.forEach((day, i) => {
       if (i === 0) {
@@ -78,7 +71,7 @@ class FiveDayForecast extends Component {
     });
 
     this.setState({ collection });
-  }
+  };
 
   render() {
     if (this.props.forecast.length === 0) {

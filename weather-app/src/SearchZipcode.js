@@ -4,27 +4,20 @@ import PropTypes from "prop-types";
 import axios from "axios";
 
 class SearchZipcode extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    zip: "",
+    country: ""
+  };
 
-    this.state = {
-      zip: "",
-      country: ""
-    };
-
-    this.update = this.update.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-  }
-
-  update(field) {
+  update = field => {
     return e => {
       this.setState({
         [field]: e.target.value
       });
     };
-  }
+  };
 
-  onSubmit(e) {
+  onSubmit = e => {
     e.preventDefault();
     if (this.state.country === "") {
       axios
@@ -70,7 +63,7 @@ class SearchZipcode extends Component {
           console.log(err);
         });
     }
-  }
+  };
 
   render() {
     return (
