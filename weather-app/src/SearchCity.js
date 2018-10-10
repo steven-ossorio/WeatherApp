@@ -31,7 +31,12 @@ class SearchCity extends Component {
   };
 
   onSubmit = e => {
-    let cityId = this.state.cities[this.state.city];
+    let cityName = this.state.city.split(" ");
+    cityName = cityName
+      .map(city => city.charAt(0).toUpperCase() + city.slice(1))
+      .join(" ");
+
+    let cityId = this.state.cities[cityName];
 
     e.preventDefault();
     axios

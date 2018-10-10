@@ -128,7 +128,7 @@ FiveDayForecast.propTypes = {
   funcShowFiveDay: PropTypes.func.isRequired,
   updateDayForecast: PropTypes.func.isRequired,
   showFiveDay: PropTypes.bool.isRequired,
-  forecast: PropTypes.object.isRequired
+  forecast: PropTypes.array.isRequired
 };
 
 export default FiveDayForecast;
