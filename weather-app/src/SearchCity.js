@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import weatherKey from "./keys/weatherApiKey";
+import PropTypes from "prop-types";
 import * as Cities from "./keys/citiesJson.json";
 import "./SearchCity.css";
 
@@ -77,5 +78,10 @@ class SearchCity extends Component {
     );
   }
 }
+
+SearchCity.propTypes = {
+  updateCurrent: PropTypes.func.isRequired,
+  updateForecast: PropTypes.func.isRequired
+};
 
 export default SearchCity;

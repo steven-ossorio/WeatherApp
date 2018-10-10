@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import moment from "moment";
+import PropTypes from "prop-types";
 import "./NextHoursWeather.css";
 
 class NextHoursWeather extends Component {
@@ -37,5 +38,9 @@ class NextHoursWeather extends Component {
     return <div className="next-hours-container">{hoursList}</div>;
   }
 }
+
+NextHoursWeather.propTypes = {
+  nextHours: PropTypes.array.isRequired
+};
 
 export default NextHoursWeather;

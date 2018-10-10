@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import weatherKey from "./keys/weatherApiKey";
+import PropTypes from "prop-types";
 import axios from "axios";
 
 class SearchZipcode extends Component {
@@ -80,5 +81,10 @@ class SearchZipcode extends Component {
     );
   }
 }
+
+SearchZipcode.propTypes = {
+  updateCurrent: PropTypes.func.isRequired,
+  updateForecast: PropTypes.func.isRequired
+};
 
 export default SearchZipcode;

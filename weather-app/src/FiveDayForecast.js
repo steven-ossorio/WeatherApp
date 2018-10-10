@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import moment from "moment";
+import PropTypes from "prop-types";
 import "./FiveDayForecast.css";
 
 class FiveDayForecast extends Component {
@@ -122,5 +123,12 @@ class FiveDayForecast extends Component {
     return <div>{forecast}</div>;
   }
 }
+
+FiveDayForecast.propTypes = {
+  funcShowFiveDay: PropTypes.func.isRequired,
+  updateDayForecast: PropTypes.func.isRequired,
+  showFiveDay: PropTypes.bool.isRequired,
+  forecast: PropTypes.object.isRequired
+};
 
 export default FiveDayForecast;
