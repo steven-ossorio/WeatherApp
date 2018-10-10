@@ -4,7 +4,7 @@ import "./CurrentWeather.css";
 
 class CurrentWeather extends Component {
   render() {
-    let { weather, sys, name, main, id, dt } = this.props.current;
+    let { weather, sys, name, main, dt } = this.props.current;
     let date = new Date(dt * 1000);
 
     return (

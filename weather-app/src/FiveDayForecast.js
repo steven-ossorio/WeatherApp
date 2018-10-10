@@ -47,7 +47,7 @@ class FiveDayForecast extends Component {
 
   createCollection = () => {
     let collection = {};
-    this.state.days.map((day, i) => {
+    this.state.days.forEach((day, i) => {
       if (i === 0) {
         let arr = [];
         for (let j = 0; j < 8; j++) {

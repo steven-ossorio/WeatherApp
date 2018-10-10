@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import SearchCity from "./SearchCity";
 import SearchZip from "./SearchZipcode";
-import SearchLatNLong from "./SearchLat&Long";
 import PropTypes from "prop-types";
 
 class SearchForms extends Component {
