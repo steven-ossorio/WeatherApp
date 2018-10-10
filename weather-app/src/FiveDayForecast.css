@@ -8,6 +8,7 @@
 }
 
 .five-day-forecast-container {
+  background-color: aquamarine;
   display: flex;
   justify-content: space-around;
   margin: 0 auto;
@@ -20,8 +21,8 @@
 }
 
 .five-day-list:hover {
-  border-right: 1px solid #5b7faf;
-  border-left: 1px solid #5b7faf;
+  /* border-right: 1px solid #5b7faf; */
+  /* border-left: 1px solid #5b7faf; */
   cursor: pointer;
 }
 
