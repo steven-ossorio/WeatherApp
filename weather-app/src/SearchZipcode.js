@@ -23,7 +23,7 @@ class SearchZipcode extends Component {
         .get(
           `http://api.openweathermap.org/data/2.5/weather?zip=${
             this.state.zip
-          }&APPID=${weatherKey.key}`
+          }&APPID=${weatherKey.key}&units=imperial`
         )
         .then(res => {
           this.props.updateCurrent(res.data);
@@ -31,12 +31,28 @@ class SearchZipcode extends Component {
         .catch(err => {
           console.log(err);
         });
+
+      axios
+        .get(
+          `http://api.openweathermap.org/data/2.5/forecast?zip=${
+            this.state.zip
+          }&APPID=${weatherKey.key}&units=imperial`
+        )
+        .then(res => {
+          console.log(res);
+          this.props.updateForecast(res.data.list);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+
+      this.setState({ zip: "" });
     } else {
       axios
         .get(
           `http://api.openweathermap.org/data/2.5/forecast?zip=${
             this.state.zip
-          },${this.state.country}&APPID=${weatherKey.key}`
+          },${this.state.country}&APPID=${weatherKey.key}&units=imperial`
         )
         .then(res => {
           console.log(res);
