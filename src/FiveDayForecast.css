@@ -1,0 +1,27 @@
+.five-day-forecast-title {
+  font-size: 2rem; }
+
+.on-hover:hover {
+  cursor: pointer;
+  color: #5b7faf; }
+
+.five-day-forecast-container {
+  background-color: aquamarine;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  width: 600px; }
+
+.five-day-list {
+  background-color: aquamarine;
+  padding: 15px; }
+
+.five-day-list:hover {
+  /* border-right: 1px solid #5b7faf; */
+  /* border-left: 1px solid #5b7faf; */
+  cursor: pointer; }
+
+li {
+  background-color: #5b7faf;
+  padding: 15px;
+  list-style: none; }
