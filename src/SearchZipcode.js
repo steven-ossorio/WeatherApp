@@ -22,7 +22,7 @@ class SearchZipcode extends Component {
     if (this.state.country === "") {
       axios
         .get(
-          `http://api.openweathermap.org/data/2.5/weather?zip=${
+          `https://api.openweathermap.org/data/2.5/weather?zip=${
             this.state.zip
           }&APPID=${weatherKey.key}&units=imperial`
         )
@@ -35,7 +35,7 @@ class SearchZipcode extends Component {
 
       axios
         .get(
-          `http://api.openweathermap.org/data/2.5/forecast?zip=${
+          `https://api.openweathermap.org/data/2.5/forecast?zip=${
             this.state.zip
           }&APPID=${weatherKey.key}&units=imperial`
         )
@@ -51,7 +51,7 @@ class SearchZipcode extends Component {
     } else {
       axios
         .get(
-          `http://api.openweathermap.org/data/2.5/forecast?zip=${
+          `https://api.openweathermap.org/data/2.5/forecast?zip=${
             this.state.zip
           },${this.state.country}&APPID=${weatherKey.key}&units=imperial`
         )
