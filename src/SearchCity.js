@@ -41,7 +41,7 @@ class SearchCity extends Component {
     e.preventDefault();
     axios
       .get(
-        `http://api.openweathermap.org/data/2.5/weather?id=${cityId}&APPID=${
+        `https://api.openweathermap.org/data/2.5/weather?id=${cityId}&APPID=${
           weatherKey.key
         }&units=imperial`
       )
@@ -55,7 +55,7 @@ class SearchCity extends Component {
 
     axios
       .get(
-        `http://api.openweathermap.org/data/2.5/forecast?id=${cityId}&APPID=${
+        `https://api.openweathermap.org/data/2.5/forecast?id=${cityId}&APPID=${
           weatherKey.key
         }&units=imperial`
       )
