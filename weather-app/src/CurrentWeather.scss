@@ -1,0 +1,37 @@
+.current-weather-container {
+  margin: 0 auto;
+  text-align: left;
+  width: 500px;
+  background-color: #5b7faf;
+  padding: 10px;
+  color: white;
+
+  &-location {
+    font-size: 1.5rem;
+    letter-spacing: 0.4em;
+  }
+
+  &-time {
+    font-size: 1.3rem;
+    letter-spacing: 0.5em;
+  }
+
+  &-description {
+    text-transform: capitalize;
+    letter-spacing: 0.3em;
+  }
+
+  &-temp {
+    display: flex;
+    width: 150px;
+
+    img {
+      height: 90px;
+    }
+
+    &-num {
+      margin-top: 9%;
+      font-size: 55px;
+    }
+  }
+}
