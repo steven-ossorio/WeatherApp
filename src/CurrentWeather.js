@@ -26,7 +26,7 @@ class CurrentWeather extends Component {
         <div className="current-weather-container-temp">
           <div className="current-weather-container-temp-img">
             <img
-              src={`http://openweathermap.org/img/w/${weather[0].icon}.png`}
+              src={`https://openweathermap.org/img/w/${weather[0].icon}.png`}
               alt=""
             />
           </div>

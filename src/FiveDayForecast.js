@@ -92,7 +92,7 @@ class FiveDayForecast extends Component {
           <h3>{day}</h3>
           <div>
             <img
-              src={`http://openweathermap.org/img/w/${
+              src={`https://openweathermap.org/img/w/${
                 weather.weather[0].icon
               }.png`}
               alt=""
