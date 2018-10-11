@@ -40,7 +40,6 @@ class SearchZipcode extends Component {
           }&APPID=${weatherKey.key}&units=imperial`
         )
         .then(res => {
-          console.log(res);
           this.props.updateForecast(res.data.list);
         })
         .catch(err => {
@@ -56,7 +55,6 @@ class SearchZipcode extends Component {
           },${this.state.country}&APPID=${weatherKey.key}&units=imperial`
         )
         .then(res => {
-          console.log(res);
           this.props.updateForecast(res.data.list);
         })
         .catch(err => {
